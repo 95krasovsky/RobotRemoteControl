@@ -81,13 +81,10 @@
 		849FDF531AC96E2C00606027 /* RobotRemoteControl */ = {
 			isa = PBXGroup;
 			children = (
-				849FDF581AC96E2C00606027 /* AppDelegate.h */,
-				849FDF591AC96E2C00606027 /* AppDelegate.m */,
 				849FDF5B1AC96E2C00606027 /* ViewController.h */,
 				849FDF5C1AC96E2C00606027 /* ViewController.m */,
 				849FDF5E1AC96E2C00606027 /* Main.storyboard */,
 				849FDF611AC96E2C00606027 /* Images.xcassets */,
-				849FDF631AC96E2C00606027 /* LaunchScreen.xib */,
 				849FDF541AC96E2C00606027 /* Supporting Files */,
 			);
 			path = RobotRemoteControl;
@@ -96,6 +93,9 @@
 		849FDF541AC96E2C00606027 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				849FDF581AC96E2C00606027 /* AppDelegate.h */,
+				849FDF591AC96E2C00606027 /* AppDelegate.m */,
+				849FDF631AC96E2C00606027 /* LaunchScreen.xib */,
 				849FDF551AC96E2C00606027 /* Info.plist */,
 				849FDF561AC96E2C00606027 /* main.m */,
 			);
@@ -346,6 +346,7 @@
 				INFOPLIST_FILE = RobotRemoteControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,6 +357,7 @@
 				INFOPLIST_FILE = RobotRemoteControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

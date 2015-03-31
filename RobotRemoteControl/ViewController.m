@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 
 @end
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.btn setTitle:@"oooooooollllll" forState:UIControlStateNormal];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
