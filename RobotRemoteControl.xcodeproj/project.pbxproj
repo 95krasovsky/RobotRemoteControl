@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		849FDF571AC96E2C00606027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF561AC96E2C00606027 /* main.m */; };
 		849FDF5A1AC96E2C00606027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF591AC96E2C00606027 /* AppDelegate.m */; };
-		849FDF5D1AC96E2C00606027 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF5C1AC96E2C00606027 /* ViewController.m */; };
+		849FDF5D1AC96E2C00606027 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF5C1AC96E2C00606027 /* SetupViewController.m */; };
 		849FDF601AC96E2C00606027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849FDF5E1AC96E2C00606027 /* Main.storyboard */; };
 		849FDF621AC96E2C00606027 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849FDF611AC96E2C00606027 /* Images.xcassets */; };
 		849FDF651AC96E2C00606027 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDF631AC96E2C00606027 /* LaunchScreen.xib */; };
 		849FDF711AC96E2C00606027 /* RobotRemoteControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF701AC96E2C00606027 /* RobotRemoteControlTests.m */; };
+		84AF55ED1ACB38160042828B /* ControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AF55EC1ACB38160042828B /* ControlViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,16 @@
 		849FDF561AC96E2C00606027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		849FDF581AC96E2C00606027 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		849FDF591AC96E2C00606027 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		849FDF5B1AC96E2C00606027 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		849FDF5C1AC96E2C00606027 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		849FDF5B1AC96E2C00606027 /* SetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		849FDF5C1AC96E2C00606027 /* SetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
 		849FDF5F1AC96E2C00606027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849FDF611AC96E2C00606027 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		849FDF641AC96E2C00606027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		849FDF6A1AC96E2C00606027 /* RobotRemoteControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobotRemoteControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FDF6F1AC96E2C00606027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849FDF701AC96E2C00606027 /* RobotRemoteControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotRemoteControlTests.m; sourceTree = "<group>"; };
+		84AF55EB1ACB38160042828B /* ControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlViewController.h; sourceTree = "<group>"; };
+		84AF55EC1ACB38160042828B /* ControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +84,7 @@
 		849FDF531AC96E2C00606027 /* RobotRemoteControl */ = {
 			isa = PBXGroup;
 			children = (
-				849FDF5B1AC96E2C00606027 /* ViewController.h */,
-				849FDF5C1AC96E2C00606027 /* ViewController.m */,
+				84AF55EE1ACB38200042828B /* Controllers */,
 				849FDF5E1AC96E2C00606027 /* Main.storyboard */,
 				849FDF611AC96E2C00606027 /* Images.xcassets */,
 				849FDF541AC96E2C00606027 /* Supporting Files */,
@@ -117,6 +119,17 @@
 				849FDF6F1AC96E2C00606027 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84AF55EE1ACB38200042828B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				849FDF5B1AC96E2C00606027 /* SetupViewController.h */,
+				849FDF5C1AC96E2C00606027 /* SetupViewController.m */,
+				84AF55EB1ACB38160042828B /* ControlViewController.h */,
+				84AF55EC1ACB38160042828B /* ControlViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +232,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				849FDF5D1AC96E2C00606027 /* ViewController.m in Sources */,
+				849FDF5D1AC96E2C00606027 /* SetupViewController.m in Sources */,
 				849FDF5A1AC96E2C00606027 /* AppDelegate.m in Sources */,
+				84AF55ED1ACB38160042828B /* ControlViewController.m in Sources */,
 				849FDF571AC96E2C00606027 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +428,7 @@
 				849FDF761AC96E2C00606027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		849FDF771AC96E2C00606027 /* Build configuration list for PBXNativeTarget "RobotRemoteControlTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +437,7 @@
 				849FDF791AC96E2C00606027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
