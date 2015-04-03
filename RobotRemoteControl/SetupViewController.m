@@ -7,6 +7,8 @@
 //
 
 #import "SetupViewController.h"
+#import "ControlViewController.h"
+#import "RobotCommandHelper.h"
 
 @interface SetupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *robotIPTextField;
@@ -20,6 +22,8 @@
     [super viewDidLoad];
     self.robotIPTextField.delegate = self;
     self.cameraIPTextField.delegate = self;
+    self.robotIPTextField.text = @"192.168.1.176";
+    self.cameraIPTextField.text = @"192.168.1.26";
 
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -34,13 +38,27 @@
 
 #pragma mark - UITextFieldDelegate
 
-
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return  YES;
 }
 
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"Show the Control Screen"]){
+        if ([segue.destinationViewController isKindOfClass:[ControlViewController class]]){
+            ControlViewController *cvc = (ControlViewController *)segue.destinationViewController;
+            RobotInfo *robotInfo = [[RobotInfo alloc] init];
+            robotInfo.robotName = @"Richard";
+            robotInfo.robotIP = self.robotIPTextField.text;
+            robotInfo.cameraIP = self.cameraIPTextField.text;
+            robotInfo.port = 2000;
+            cvc.robotInfo = robotInfo;           
+        }
+    }
+}
 
 
 

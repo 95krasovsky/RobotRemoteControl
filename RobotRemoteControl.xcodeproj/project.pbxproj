@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848D20E31ACC59FA009D80D2 /* RobotInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D20E21ACC59FA009D80D2 /* RobotInfo.m */; };
+		848D20E61ACC8113009D80D2 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D20E51ACC8113009D80D2 /* GCDAsyncUdpSocket.m */; };
+		848D20EA1ACC91F9009D80D2 /* RobotCommandHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D20E91ACC91F9009D80D2 /* RobotCommandHelper.m */; };
+		848D20ED1ACC93B4009D80D2 /* RobotControlState.m in Sources */ = {isa = PBXBuildFile; fileRef = 848D20EC1ACC93B4009D80D2 /* RobotControlState.m */; };
 		849FDF571AC96E2C00606027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF561AC96E2C00606027 /* main.m */; };
 		849FDF5A1AC96E2C00606027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF591AC96E2C00606027 /* AppDelegate.m */; };
 		849FDF5D1AC96E2C00606027 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF5C1AC96E2C00606027 /* SetupViewController.m */; };
@@ -15,6 +19,9 @@
 		849FDF651AC96E2C00606027 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDF631AC96E2C00606027 /* LaunchScreen.xib */; };
 		849FDF711AC96E2C00606027 /* RobotRemoteControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDF701AC96E2C00606027 /* RobotRemoteControlTests.m */; };
 		84AF55ED1ACB38160042828B /* ControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AF55EC1ACB38160042828B /* ControlViewController.m */; };
+		84AF55F21ACB40710042828B /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AF55F11ACB40710042828B /* ConnectionManager.m */; };
+		84CFF0CB1ACE7C4D00A38673 /* JoystickControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF0CA1ACE7C4D00A38673 /* JoystickControlViewController.m */; };
+		84CFF0CF1ACE859800A38673 /* JoystickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF0CE1ACE859800A38673 /* JoystickView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		848D20E11ACC59FA009D80D2 /* RobotInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotInfo.h; sourceTree = "<group>"; };
+		848D20E21ACC59FA009D80D2 /* RobotInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotInfo.m; sourceTree = "<group>"; };
+		848D20E41ACC8113009D80D2 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		848D20E51ACC8113009D80D2 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		848D20E81ACC91F9009D80D2 /* RobotCommandHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotCommandHelper.h; sourceTree = "<group>"; };
+		848D20E91ACC91F9009D80D2 /* RobotCommandHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotCommandHelper.m; sourceTree = "<group>"; };
+		848D20EB1ACC93B4009D80D2 /* RobotControlState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotControlState.h; sourceTree = "<group>"; };
+		848D20EC1ACC93B4009D80D2 /* RobotControlState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotControlState.m; sourceTree = "<group>"; };
 		849FDF511AC96E2C00606027 /* RobotRemoteControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobotRemoteControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849FDF551AC96E2C00606027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849FDF561AC96E2C00606027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +58,12 @@
 		849FDF701AC96E2C00606027 /* RobotRemoteControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RobotRemoteControlTests.m; sourceTree = "<group>"; };
 		84AF55EB1ACB38160042828B /* ControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlViewController.h; sourceTree = "<group>"; };
 		84AF55EC1ACB38160042828B /* ControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlViewController.m; sourceTree = "<group>"; };
+		84AF55F01ACB40710042828B /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		84AF55F11ACB40710042828B /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		84CFF0C91ACE7C4D00A38673 /* JoystickControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoystickControlViewController.h; sourceTree = "<group>"; };
+		84CFF0CA1ACE7C4D00A38673 /* JoystickControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoystickControlViewController.m; sourceTree = "<group>"; };
+		84CFF0CD1ACE859800A38673 /* JoystickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoystickView.h; sourceTree = "<group>"; };
+		84CFF0CE1ACE859800A38673 /* JoystickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoystickView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		848D20E71ACC811A009D80D2 /* AsyncUdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				848D20E41ACC8113009D80D2 /* GCDAsyncUdpSocket.h */,
+				848D20E51ACC8113009D80D2 /* GCDAsyncUdpSocket.m */,
+			);
+			name = AsyncUdpSocket;
+			sourceTree = "<group>";
+		};
 		849FDF481AC96E2C00606027 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +114,9 @@
 		849FDF531AC96E2C00606027 /* RobotRemoteControl */ = {
 			isa = PBXGroup;
 			children = (
+				84CFF0CC1ACE857E00A38673 /* Views */,
+				848D20E71ACC811A009D80D2 /* AsyncUdpSocket */,
+				84AF55EF1ACB40410042828B /* Helpers */,
 				84AF55EE1ACB38200042828B /* Controllers */,
 				849FDF5E1AC96E2C00606027 /* Main.storyboard */,
 				849FDF611AC96E2C00606027 /* Images.xcassets */,
@@ -124,12 +157,38 @@
 		84AF55EE1ACB38200042828B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84CFF0C91ACE7C4D00A38673 /* JoystickControlViewController.h */,
+				84CFF0CA1ACE7C4D00A38673 /* JoystickControlViewController.m */,
 				849FDF5B1AC96E2C00606027 /* SetupViewController.h */,
 				849FDF5C1AC96E2C00606027 /* SetupViewController.m */,
 				84AF55EB1ACB38160042828B /* ControlViewController.h */,
 				84AF55EC1ACB38160042828B /* ControlViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84AF55EF1ACB40410042828B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				84AF55F01ACB40710042828B /* ConnectionManager.h */,
+				84AF55F11ACB40710042828B /* ConnectionManager.m */,
+				848D20E11ACC59FA009D80D2 /* RobotInfo.h */,
+				848D20E21ACC59FA009D80D2 /* RobotInfo.m */,
+				848D20E81ACC91F9009D80D2 /* RobotCommandHelper.h */,
+				848D20E91ACC91F9009D80D2 /* RobotCommandHelper.m */,
+				848D20EB1ACC93B4009D80D2 /* RobotControlState.h */,
+				848D20EC1ACC93B4009D80D2 /* RobotControlState.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		84CFF0CC1ACE857E00A38673 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84CFF0CD1ACE859800A38673 /* JoystickView.h */,
+				84CFF0CE1ACE859800A38673 /* JoystickView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +292,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				849FDF5D1AC96E2C00606027 /* SetupViewController.m in Sources */,
+				84AF55F21ACB40710042828B /* ConnectionManager.m in Sources */,
 				849FDF5A1AC96E2C00606027 /* AppDelegate.m in Sources */,
 				84AF55ED1ACB38160042828B /* ControlViewController.m in Sources */,
+				84CFF0CB1ACE7C4D00A38673 /* JoystickControlViewController.m in Sources */,
+				848D20EA1ACC91F9009D80D2 /* RobotCommandHelper.m in Sources */,
+				848D20E61ACC8113009D80D2 /* GCDAsyncUdpSocket.m in Sources */,
+				848D20E31ACC59FA009D80D2 /* RobotInfo.m in Sources */,
 				849FDF571AC96E2C00606027 /* main.m in Sources */,
+				84CFF0CF1ACE859800A38673 /* JoystickView.m in Sources */,
+				848D20ED1ACC93B4009D80D2 /* RobotControlState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

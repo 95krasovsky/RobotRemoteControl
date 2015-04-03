@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RobotInfo.h"
 
 @interface ControlViewController : UIViewController
+
+@property (strong, nonatomic) RobotInfo *robotInfo;
 
 @end
