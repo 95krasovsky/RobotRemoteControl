@@ -15,7 +15,8 @@
 @property (nonatomic) dispatch_source_t timer;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *velocityLabel;
-
+@property (strong, nonatomic) NSTimer *imageTimer;
+@property (strong, nonatomic) NSDate *currentImageDate ;
 @end
 
 
@@ -24,7 +25,10 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
+   // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://hdwallpaperd.com/wp-content/uploads/Hd-Widescreen-Wallpapers-For-Desktop1.jpg"]]] ;
+    //NSLog(@"hop");
 }
 
 -(void)setRobotInfo:(RobotInfo *)robotInfo{
@@ -64,15 +68,34 @@
 -(void)viewWillAppear:(BOOL)animated{
     [RobotControlState setDefaultState];
     [self startTimer];
+ //   [self startImageTimer];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self resetTimer];
+    
 }
 
+-(void)startImageTimer{
+    self.imageTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
+                                                       target:self
+                                                     selector:@selector(updateImage:)
+                                                     userInfo:[NSDate date]
+                                                      repeats:YES];
+}
 
-
-
+-(void)updateImage:(NSTimer *)timer{
+    NSDate *date = [timer userInfo];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.175/jpg/image.jpg"]]] ;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imageView.image = image;
+            NSLog(@"image downloaded");
+        });
+    });
+    
+}
 
 
 -(void)startTimer{
