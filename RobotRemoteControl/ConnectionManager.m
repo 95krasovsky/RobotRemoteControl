@@ -8,7 +8,7 @@
 
 #import "ConnectionManager.h"
 #import "GCDAsyncUdpSocket.h"
-#import "RobotCommandHelper.h"
+#import "RobotCommandGenerator.h"
 
 @implementation ConnectionManager
 
@@ -19,7 +19,7 @@
 
 +(void)sendUDPPacketToRobot:(RobotInfo *)robotInfo{
     GCDAsyncUdpSocket *socket = [[GCDAsyncUdpSocket alloc] init];
-    char *buffer = [RobotCommandHelper generateCommand];
+    char *buffer = [RobotCommandGenerator generateCommand];
 //    printf("com: ");
 //    for (int i = 0; i<51; i++){
 //        printf("%i ", *(buffer+i));
@@ -32,8 +32,6 @@
     [socket closeAfterSending];
 }
 
-+(void)tryToConnectToRobot:(NSString *)robotIP{   
-    
-}
+
 
 @end

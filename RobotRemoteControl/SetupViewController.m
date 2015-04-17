@@ -8,7 +8,7 @@
 
 #import "SetupViewController.h"
 #import "ControlViewController.h"
-#import "RobotCommandHelper.h"
+#import "RobotCommandGenerator.h"
 
 @interface SetupViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *robotIPTextField;
@@ -20,10 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     self.robotIPTextField.delegate = self;
     self.cameraIPTextField.delegate = self;
     self.robotIPTextField.text = @"192.168.1.176";
-    self.cameraIPTextField.text = @"192.168.1.26";
+    self.cameraIPTextField.text = @"admin:admin@192.168.1.175";
+    //self.cameraIPTextField.text = @"www.google.com";
+
 
     // Do any additional setup after loading the view, typically from a nib.
 }

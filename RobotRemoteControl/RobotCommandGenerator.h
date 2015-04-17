@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RobotCommandHelper : NSObject
+@interface RobotCommandGenerator : NSObject
 
 +(char*)generateCommand;
-
 @end

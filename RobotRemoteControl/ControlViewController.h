@@ -12,5 +12,5 @@
 @interface ControlViewController : UIViewController
 
 @property (strong, nonatomic) RobotInfo *robotInfo;
-
+@property (weak, nonatomic) IBOutlet UISlider *velocitySlider;
 @end

@@ -14,6 +14,7 @@
  static const int ANGLE_180_DEGREES = 180;
  static const int ANGLE_270_DEGREES = 270;
  static const int ANGLE_360_DEGREES = 360;
+
 @interface RobotControlState : NSObject
 
 +(void)setAngle:(int)angle;

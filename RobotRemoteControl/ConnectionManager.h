@@ -10,10 +10,7 @@
 #import "RobotInfo.h"
 @interface ConnectionManager : UIViewController
 
-
 +(BOOL)isWiFiConnected;
 +(void)sendUDPPacketToRobot:(RobotInfo *)robotInfo;
-
-+(void)tryToConnectToRobot:(NSString *)robotIP;
 
 @end
