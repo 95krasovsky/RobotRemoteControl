@@ -9,6 +9,7 @@
 #import "RobotCommandGenerator.h"
 #import "RobotControlState.h"
 //#import "math.h"
+#define ROTATION_VELOCITY_FACTOR 0.5
 
 @implementation RobotCommandGenerator
 
@@ -62,95 +63,119 @@ static const int inDirectRobotPowerValueslength = 9;
     return value;
 }
 
-+(int) calculateDirectPowerValueIndex:(int) velocity {
-    int value = 0;
-    value = (int) floor((velocity * 128 / 100) / (128 / (directRobotPowerValueslength - 1)));
-    //NSLog(@"velocity: %i; direct value: %i", velocity, value);
+//          up
+//          100
+
+
+//left 100      -100 right
+
+
+//          -100
+//          down
+
++(int)adjustWheelVelocity:(int)wheelVelocity{
+    if (abs(wheelVelocity) <= MAX_VELOCITY){
+        return wheelVelocity;
+    } else{
+        return (wheelVelocity >= 0) ? 100 : -100;
+    }
+}
+
++(char)calculateVelocity:(double) velocity {
+    char value;
+    if (velocity>0){
+        value = MIN_FORWARD_POWER + (MAX_FORWARD_POWER-MIN_FORWARD_POWER)*(velocity/MAX_VELOCITY);
+    } else{
+        value = MIN_BACK_POWER + (MAX_BACK_POWER-MIN_BACK_POWER)*(-velocity/MAX_VELOCITY);
+    }
     return value;
 }
 
-+(int) calculateInDirectPowerValueIndex:(int) velocity {
-    int value = 0;
-    value = (int) floor((velocity * 128 / 100) / (128 / (inDirectRobotPowerValueslength - 1)));
-    //NSLog(@"velocity: %i; direct value: %i", velocity, value);
-
-    return value;
-}
-
-+(int) calculateProjectionX:(int) power
-                      angle:(int) angle {
-    int num = (int) (power * cos(angle));
-    if(num < 0) {
-        return 0;
-    }
-    return num;
-}
-
-+(int) calculateProjectionY:(int) power
-                      angle:(int) angle {
-    
-    int num = (int)(power * cos(90.0 - angle));
-    if(num < 0) {
-        return 0;
-    }
-    return num;
-}
 
 +(char*)generateCommand{
-    int currentAngle = [RobotControlState angle];
-    int currentVelocity = [RobotControlState velocity];
+//    int currentAngle = [RobotControlState angle];
+//    int currentVelocity = [RobotControlState linearVelocity];
     
+    int linearVelocity = [RobotControlState linearVelocity];
+    int rotationVelocity = [RobotControlState rotationVelocity];
+    rotationVelocity = rotationVelocity * ROTATION_VELOCITY_FACTOR;
+    
+    
+    
+    int rightWheelVelocity, leftWheelVelocity;
+    if (linearVelocity>=0){
+        rightWheelVelocity = linearVelocity + rotationVelocity;
+        leftWheelVelocity = linearVelocity - rotationVelocity;
+    } else{
+        rightWheelVelocity = linearVelocity - rotationVelocity;
+        leftWheelVelocity = linearVelocity + rotationVelocity;
+    }
 
+    rightWheelVelocity = [self adjustWheelVelocity:rightWheelVelocity];
+    leftWheelVelocity = [self adjustWheelVelocity:leftWheelVelocity];
+    
+    
+    NSLog(@"left: %d, right: %d", leftWheelVelocity, rightWheelVelocity);
+    NSLog(@"linear: %d, rotation: %d", linearVelocity , rotationVelocity);
+
+    
     char *resultBuffer = malloc(size);
-
+    
     for (int i = 0; i < size; ++i)
     {
         resultBuffer[i] = extendedCharBuffer[i];
     }
-    
-    NSString *command;
-    //[45] - left wheels
-    //[48] - right wheels
-    if (currentVelocity > 0 && currentAngle != ANGLE_DEFAULT) {
-        if (currentAngle == ANGLE_0_DEGREES) {
-            command = @"STRAIGHT";
-            resultBuffer[45]=[self calculateForwardVelocity:currentVelocity];
-            resultBuffer[48]=[self calculateForwardVelocity:currentVelocity];
-        } else if (currentAngle == ANGLE_90_DEGREES) {
-            command = @"RIGHT";
-            resultBuffer[45]=[self calculateForwardVelocity:currentVelocity];
-            resultBuffer[48]=[self calculateBackVelocity:currentVelocity];
 
-            
-        } else if (currentAngle == ANGLE_180_DEGREES) {
-            command = @"BACK";
-            resultBuffer[45]=[self calculateBackVelocity:currentVelocity];
-            resultBuffer[48]=[self calculateBackVelocity:currentVelocity];
-            
-        } else if (currentAngle == ANGLE_270_DEGREES) {
-            command = @"LEFT";
-            resultBuffer[45]=[self calculateBackVelocity:currentVelocity];
-            resultBuffer[48]=[self calculateForwardVelocity:currentVelocity];
-            
-        } else if(currentAngle > ANGLE_0_DEGREES && currentAngle < ANGLE_90_DEGREES) {
-            resultBuffer[45] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
-            resultBuffer[48] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
-        } else if(currentAngle > ANGLE_90_DEGREES && currentAngle < ANGLE_180_DEGREES) {
-            resultBuffer[45] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
-            resultBuffer[48] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
-        } else if(currentAngle > ANGLE_180_DEGREES && currentAngle < ANGLE_270_DEGREES) {
-           // Log.e("log", " " + calculateDirectPowerValueIndex(calculateProjectionX(currentVelocity, currentAngle)));
-           // Log.e("log", " " + calculateInDirectPowerValueIndex(calculateProjectionY(currentVelocity, currentAngle)));
-            resultBuffer[45] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
-            resultBuffer[48] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
-        } else if(currentAngle > ANGLE_270_DEGREES && currentAngle < ANGLE_360_DEGREES) {
-            resultBuffer[45] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
-            resultBuffer[48] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
-        }
-        command = [command stringByAppendingString:[NSString stringWithFormat:@": %d", currentVelocity]];
-    }else{
-        command = [NSString stringWithFormat:@"STOP: %d", currentVelocity];
-    }
+    
+    resultBuffer[45]=[self calculateVelocity:leftWheelVelocity];
+    resultBuffer[48]=[self calculateVelocity:rightWheelVelocity];
+    
+    
+    //
+//    NSString *command;
+//    //[45] - left wheels
+//    //[48] - right wheels
+//    if (currentVelocity > 0 && currentAngle != ANGLE_DEFAULT) {
+//        if (currentAngle == ANGLE_0_DEGREES) {
+//            command = @"STRAIGHT";
+//            resultBuffer[45]=[self calculateForwardVelocity:currentVelocity];
+//            resultBuffer[48]=[self calculateForwardVelocity:currentVelocity];
+//        } else if (currentAngle == ANGLE_90_DEGREES) {
+//            command = @"RIGHT";
+//            resultBuffer[45]=[self calculateForwardVelocity:currentVelocity];
+//            resultBuffer[48]=[self calculateBackVelocity:currentVelocity];
+//            
+//        } else if (currentAngle == ANGLE_180_DEGREES) {
+//            command = @"BACK";
+//            resultBuffer[45]=[self calculateBackVelocity:currentVelocity];
+//            resultBuffer[48]=[self calculateBackVelocity:currentVelocity];
+//            
+//        } else if (currentAngle == ANGLE_270_DEGREES) {
+//            command = @"LEFT";
+//            resultBuffer[45]=[self calculateBackVelocity:currentVelocity];
+//            resultBuffer[48]=[self calculateForwardVelocity:currentVelocity];
+//            
+//        }
+    
+            //else if(currentAngle > ANGLE_0_DEGREES && currentAngle < ANGLE_90_DEGREES) {
+//            resultBuffer[45] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
+//            resultBuffer[48] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
+//        } else if(currentAngle > ANGLE_90_DEGREES && currentAngle < ANGLE_180_DEGREES) {
+//            resultBuffer[45] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
+//            resultBuffer[48] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
+//        } else if(currentAngle > ANGLE_180_DEGREES && currentAngle < ANGLE_270_DEGREES) {
+//           // Log.e("log", " " + calculateDirectPowerValueIndex(calculateProjectionX(currentVelocity, currentAngle)));
+//           // Log.e("log", " " + calculateInDirectPowerValueIndex(calculateProjectionY(currentVelocity, currentAngle)));
+//            resultBuffer[45] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
+//            resultBuffer[48] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
+//        } else if(currentAngle > ANGLE_270_DEGREES && currentAngle < ANGLE_360_DEGREES) {
+//            resultBuffer[45] = (char) directRobotPowerValues[[self calculateDirectPowerValueIndex:[self calculateProjectionY:currentVelocity angle:currentAngle]]];
+//            resultBuffer[48] = (char) inDirectRobotPowerValues[[self calculateInDirectPowerValueIndex:[self calculateProjectionX:currentVelocity angle:currentAngle]]];
+//        }
+//        command = [command stringByAppendingString:[NSString stringWithFormat:@": %d", currentVelocity]];
+//    }else{
+//        command = [NSString stringWithFormat:@"STOP: %d", currentVelocity];
+//    }
     
     //NSLog(@"%@", command);
         return resultBuffer;

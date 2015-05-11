@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NeB-gb-aff">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NeB-gb-aff">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -117,15 +117,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qb-in-0oG">
-                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ips-nb-u1d">
-                                <rect key="frame" x="145" y="199" width="30" height="30"/>
+                                <rect key="frame" x="135" y="189" width="50" height="50"/>
                                 <gestureRecognizers/>
-                                <state key="normal" title="Up">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9j0-iH-VSG"/>
+                                    <constraint firstAttribute="height" constant="50" id="df4-20-TLE"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="arrowUp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -134,8 +133,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-CP-CiU">
-                                <rect key="frame" x="75" y="269" width="30" height="30"/>
-                                <state key="normal" title="Left">
+                                <rect key="frame" x="65" y="259" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Qty-Wm-Uha"/>
+                                    <constraint firstAttribute="width" constant="50" id="eAz-5H-1i0"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="arrowLeft">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -143,12 +146,13 @@
                                     <action selector="btnUp:" destination="ZE4-2E-5Hx" eventType="touchUpInside" id="cEM-Pb-Av2"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tNt-ab-0gF">
-                                <rect key="frame" x="77" y="72" width="229" height="31"/>
-                            </slider>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-jv-wkk">
-                                <rect key="frame" x="212" y="269" width="37" height="30"/>
-                                <state key="normal" title="Right">
+                                <rect key="frame" x="205" y="259" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5g7-Xe-s0M"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qjc-0D-EDS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="arrowRight">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -163,8 +167,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWc-ea-rXF">
-                                <rect key="frame" x="140" y="339" width="40" height="30"/>
-                                <state key="normal" title="Down">
+                                <rect key="frame" x="135" y="329" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4q0-Rt-pBC"/>
+                                    <constraint firstAttribute="height" constant="50" id="gZo-0e-D7e"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="arrowDown">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -172,11 +180,19 @@
                                     <action selector="btnUp:" destination="ZE4-2E-5Hx" eventType="touchUpInside" id="6aV-8M-K3Y"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tNt-ab-0gF">
+                                <rect key="frame" x="77" y="72" width="229" height="31"/>
+                            </slider>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999969" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="4Qb-in-0oG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <gestureRecognizers/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="qWc-ea-rXF" secondAttribute="centerX" id="5kV-bq-57o"/>
+                            <constraint firstItem="4Qb-in-0oG" firstAttribute="top" secondItem="ETs-cl-K10" secondAttribute="top" id="6nV-9J-eSW"/>
                             <constraint firstAttribute="trailing" secondItem="4Qb-in-0oG" secondAttribute="trailing" id="7LP-m0-pkm"/>
                             <constraint firstAttribute="centerX" secondItem="Ips-nb-u1d" secondAttribute="centerX" id="7xV-p2-koG"/>
                             <constraint firstAttribute="centerY" secondItem="nnh-jv-wkk" secondAttribute="centerY" id="DCU-rG-XGp"/>
@@ -190,7 +206,6 @@
                             <constraint firstItem="LZs-Gw-qcD" firstAttribute="top" secondItem="zVa-OB-Jp1" secondAttribute="bottom" constant="12" id="YVt-vW-Ra6"/>
                             <constraint firstItem="LZs-Gw-qcD" firstAttribute="leading" secondItem="ETs-cl-K10" secondAttribute="leadingMargin" id="bBF-Oq-uwo"/>
                             <constraint firstItem="tNt-ab-0gF" firstAttribute="centerY" secondItem="LZs-Gw-qcD" secondAttribute="centerY" constant="0.5" id="erE-ag-K2A"/>
-                            <constraint firstItem="4Qb-in-0oG" firstAttribute="top" secondItem="zVa-OB-Jp1" secondAttribute="bottom" constant="-1" id="wJ4-p2-9tY"/>
                             <constraint firstItem="jd5-CP-CiU" firstAttribute="centerY" secondItem="ETs-cl-K10" secondAttribute="centerY" id="yII-uX-lkc"/>
                             <constraint firstAttribute="centerX" secondItem="jd5-CP-CiU" secondAttribute="centerX" constant="70" id="zjn-Q7-FRO"/>
                         </constraints>
@@ -236,47 +251,85 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2zI-Zc-tZB">
-                                <rect key="frame" x="0.0" y="63" width="320" height="505"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999969" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="2zI-Zc-tZB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wJ9-E2-aUH">
+                                <rect key="frame" x="77" y="72" width="229" height="31"/>
+                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxn-Pm-6cL">
                                 <rect key="frame" x="16" y="76" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wJ9-E2-aUH">
-                                <rect key="frame" x="77" y="72" width="229" height="31"/>
-                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdv-Gp-Rbn">
+                                <rect key="frame" x="254" y="498" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Z6f-Wp-ges"/>
+                                    <constraint firstAttribute="width" constant="50" id="ndl-r5-5K0"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="greenBtn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="motionButtonDown:" destination="zX4-o2-upg" eventType="touchDown" id="z9H-l6-1E5"/>
+                                    <action selector="motionButtonUp:" destination="zX4-o2-upg" eventType="touchUpInside" id="c7n-ba-1gA"/>
+                                    <action selector="motionButtonUp:" destination="zX4-o2-upg" eventType="touchUpOutside" id="wEN-1g-qb4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yi-rm-XTM">
+                                <rect key="frame" x="16" y="488" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7Qx-EM-aXn"/>
+                                    <constraint firstAttribute="width" constant="60" id="CWm-Ad-bpU"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="blueBtn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="rxn-Pm-6cL" firstAttribute="leading" secondItem="g2N-nN-eoV" secondAttribute="leadingMargin" id="4T6-Mx-oZG"/>
-                            <constraint firstItem="2zI-Zc-tZB" firstAttribute="top" secondItem="4Zs-kY-fqK" secondAttribute="bottom" constant="-1" id="6bk-1a-L50"/>
-                            <constraint firstAttribute="bottom" secondItem="2zI-Zc-tZB" secondAttribute="bottom" id="M2Q-f0-4HU"/>
-                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="centerY" secondItem="rxn-Pm-6cL" secondAttribute="centerY" constant="0.5" id="PUS-jU-GA4"/>
-                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="leading" secondItem="rxn-Pm-6cL" secondAttribute="trailing" constant="8" symbolic="YES" id="W3M-fM-ARJ"/>
-                            <constraint firstAttribute="trailing" secondItem="2zI-Zc-tZB" secondAttribute="trailing" id="g5I-P2-z5B"/>
-                            <constraint firstItem="2zI-Zc-tZB" firstAttribute="leading" secondItem="g2N-nN-eoV" secondAttribute="leading" id="lSN-DZ-nZI"/>
-                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="trailing" secondItem="g2N-nN-eoV" secondAttribute="trailingMargin" id="quY-Pv-fYA"/>
-                            <constraint firstItem="rxn-Pm-6cL" firstAttribute="top" secondItem="4Zs-kY-fqK" secondAttribute="bottom" constant="12" id="zTJ-JU-D0D"/>
+                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="trailing" secondItem="g2N-nN-eoV" secondAttribute="trailingMargin" id="2g9-2H-lmq"/>
+                            <constraint firstItem="Kdv-Gp-Rbn" firstAttribute="trailing" secondItem="wJ9-E2-aUH" secondAttribute="trailing" id="57t-7z-n0n"/>
+                            <constraint firstItem="2zI-Zc-tZB" firstAttribute="leading" secondItem="g2N-nN-eoV" secondAttribute="leading" id="5cg-q1-cRt"/>
+                            <constraint firstItem="rxn-Pm-6cL" firstAttribute="top" secondItem="4Zs-kY-fqK" secondAttribute="bottom" constant="12" id="98C-4W-4bp"/>
+                            <constraint firstItem="2zI-Zc-tZB" firstAttribute="top" secondItem="g2N-nN-eoV" secondAttribute="top" id="Gph-VA-nua"/>
+                            <constraint firstAttribute="bottom" secondItem="9Yi-rm-XTM" secondAttribute="bottom" constant="20" id="Jv7-jW-mLa"/>
+                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="leading" secondItem="rxn-Pm-6cL" secondAttribute="trailing" constant="8" symbolic="YES" id="KlX-7e-kgl"/>
+                            <constraint firstItem="rxn-Pm-6cL" firstAttribute="leading" secondItem="g2N-nN-eoV" secondAttribute="leadingMargin" id="QX3-3M-EDj"/>
+                            <constraint firstAttribute="bottom" secondItem="Kdv-Gp-Rbn" secondAttribute="bottom" constant="20" symbolic="YES" id="SPG-wJ-jeG"/>
+                            <constraint firstItem="wJ9-E2-aUH" firstAttribute="top" secondItem="4Zs-kY-fqK" secondAttribute="bottom" constant="8" symbolic="YES" id="kor-Od-zxD"/>
+                            <constraint firstAttribute="trailing" secondItem="2zI-Zc-tZB" secondAttribute="trailing" id="oa6-d7-NQ4"/>
+                            <constraint firstItem="2zI-Zc-tZB" firstAttribute="bottom" secondItem="lrt-gz-ybi" secondAttribute="top" id="uTW-J4-A63"/>
+                            <constraint firstItem="9Yi-rm-XTM" firstAttribute="leading" secondItem="g2N-nN-eoV" secondAttribute="leading" constant="16" id="w8c-hf-Pu2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kxd-3Z-TdX"/>
                     <connections>
                         <outlet property="imageView" destination="2zI-Zc-tZB" id="bt9-wr-yrc"/>
+                        <outlet property="motionButton" destination="Kdv-Gp-Rbn" id="JXp-Dt-FQq"/>
                         <outlet property="velocityLabel" destination="rxn-Pm-6cL" id="tEk-WO-r0r"/>
                         <outlet property="velocitySlider" destination="wJ9-E2-aUH" id="Y4f-Of-O1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zc-UI-epQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="483"/>
+            <point key="canvasLocation" x="1641" y="483"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrowDown" width="128" height="128"/>
+        <image name="arrowLeft" width="128" height="128"/>
+        <image name="arrowRight" width="128" height="128"/>
+        <image name="arrowUp" width="128" height="128"/>
+        <image name="blueBtn" width="150" height="150"/>
+        <image name="greenBtn" width="360" height="360"/>
+        <image name="robot" width="401" height="408"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

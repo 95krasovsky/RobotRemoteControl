@@ -18,10 +18,12 @@
 @interface RobotControlState : NSObject
 
 +(void)setAngle:(int)angle;
-+(void)setVelocity:(int)velocity;
++(void)setLinearVelocity:(int)linearVelocity;
 +(int)angle;
-+(int)velocity;
-
++(int)linearVelocity;
 +(void)setDefaultState;
+
++(int)rotationVelocity;
++(void)setRotationVelocity:(int)rotationVelocity;
 
 @end

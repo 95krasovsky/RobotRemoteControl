@@ -18,23 +18,26 @@
 
 
 - (IBAction)btnDown:(UIButton *)sender {
+    float velocity = self.velocitySlider.value;
     switch (sender.tag) {
         case 0: //up
-            [RobotControlState setAngle:ANGLE_0_DEGREES];
+          //  [RobotControlState setAngle:ANGLE_0_DEGREES];
+            [RobotControlState setLinearVelocity:velocity];
             break;
         case 1: //right
-            [RobotControlState setAngle:ANGLE_90_DEGREES];
+            [RobotControlState setRotationVelocity:-velocity];
             break;
         case 2: //down
-            [RobotControlState setAngle:ANGLE_180_DEGREES];
+            [RobotControlState setLinearVelocity:-velocity];
             break;
         case 3: //left
-            [RobotControlState setAngle:ANGLE_270_DEGREES];
+            [RobotControlState setRotationVelocity:velocity];
             break;
         default:
             break;
     }
-    [RobotControlState setVelocity:self.velocitySlider.value];
+    
+//    [RobotControlState setLinearVelocity:self.velocitySlider.value];
 }
 
 - (IBAction)btnUp:(UIButton *)sender {
