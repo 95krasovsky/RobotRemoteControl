@@ -10,18 +10,11 @@
 
 @implementation RobotControlState
 
-static int currentAngle = 0;
 static int linearVelocity = 0;
 static int rotationVelocity = 0;
 
 
-+(int)angle{
-    return currentAngle;
-}
 
-+(void)setAngle:(int)angle{
-    currentAngle = angle;
-}
 +(void)setLinearVelocity:(int)velocity{
     linearVelocity = velocity;
 }
@@ -41,7 +34,6 @@ static int rotationVelocity = 0;
 
 
 +(void)setDefaultState{
-    currentAngle = ANGLE_DEFAULT;
     linearVelocity = 0;
     rotationVelocity = 0;
 }

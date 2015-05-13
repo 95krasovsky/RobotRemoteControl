@@ -9,14 +9,14 @@
 #import "RobotCommandGenerator.h"
 #import "RobotControlState.h"
 //#import "math.h"
-#define ROTATION_VELOCITY_FACTOR 0.5
+#define ROTATION_VELOCITY_FACTOR 0.8
 
 @implementation RobotCommandGenerator
 
 static const char extendedCharBuffer[] = {'$','0','0','0','0','0','0','0','0','-',
     '0','0','0','0','-','0','0','0','0','-',
     '0','0','0','0','-','0','0','0','0','0',
-    '0','0','0','0','0','1','4','c','t','r',
+    '0','0','0','0','0','0','6','c','t','r',
     'l','$',0,0,(char)128,(char)128,(char)128,0,(char)128,0,
     '#'};
 static const int size = 51;
@@ -40,13 +40,6 @@ static const char MIN_BACK_POWER = -127;
 static const char MAX_BACK_POWER = -1;
 
 static const int MAX_VELOCITY = 100;
-
-static const char directRobotPowerValues[] = {(char)142,(char)156,(char)170,(char)184, (char)198, (char)212,(char)226,(char)240,(char)255};
-static const int directRobotPowerValueslength = 9;
-
-static const char inDirectRobotPowerValues[] = {(char)112,(char)98,(char)84,(char)70,(char)56,(char)42,(char)28,(char)14,(char)0};
-static const int inDirectRobotPowerValueslength = 9;
-
 
 
 //+(int)getSize{

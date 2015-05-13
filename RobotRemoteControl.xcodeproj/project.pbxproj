@@ -114,7 +114,6 @@
 		849FDF531AC96E2C00606027 /* RobotRemoteControl */ = {
 			isa = PBXGroup;
 			children = (
-				84CFF0CC1ACE857E00A38673 /* Views */,
 				848D20E71ACC811A009D80D2 /* AsyncUdpSocket */,
 				84AF55EF1ACB40410042828B /* Helpers */,
 				84AF55EE1ACB38200042828B /* Controllers */,
@@ -182,13 +181,6 @@
 				848D20EC1ACC93B4009D80D2 /* RobotControlState.m */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		84CFF0CC1ACE857E00A38673 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

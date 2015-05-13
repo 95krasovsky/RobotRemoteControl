@@ -68,7 +68,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [RobotControlState setDefaultState];
     [self startTimer];
- //   [self startImageTimer];
+    [self startImageTimer];
     
 }
 
@@ -78,7 +78,7 @@
 }
 
 -(void)startImageTimer{
-    self.imageTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
+    self.imageTimer = [NSTimer scheduledTimerWithTimeInterval:0.2
                                                        target:self
                                                      selector:@selector(updateImage:)
                                                      userInfo:[NSDate date]
@@ -86,11 +86,12 @@
 }
 
 -(void)updateImage:(NSTimer *)timer{
-    NSDate *date = [timer userInfo];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.175/jpg/image.jpg"]]] ;
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.115/jpg/image.jpg"]]] ;
+    
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = image;
+            self.imageView.alpha = 0.8;
             NSLog(@"image downloaded");
         });
     });
@@ -101,13 +102,12 @@
 -(void)startTimer{
     self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,
                                             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0));
-    double interval = 0.5;
+    double interval = 0.1;
     dispatch_time_t startTime = dispatch_time(DISPATCH_TIME_NOW, 0);
     uint64_t intervalTime = (int64_t)(interval * NSEC_PER_SEC);
     dispatch_source_set_timer(self.timer, startTime, intervalTime, 0);
     dispatch_source_set_event_handler(self.timer, ^{
-        [ConnectionManager sendUDPPacketToRobot:self.robotInfo];
-        //[self updateImage];
+    [ConnectionManager sendUDPPacketToRobot:self.robotInfo];
     });
     
     dispatch_resume(self.timer);
@@ -117,13 +117,13 @@
     dispatch_source_cancel(self.timer);
 }
 
--(void)updateImage{
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.175/jpg/image.jpg"]]] ;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.imageView.image = image;
-        NSLog(@"image downloaded");
-    });
-}
+//-(void)updateImage{
+//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.175/jpg/image.jpg"]]] ;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        self.imageView.image = image;
+//        NSLog(@"image downloaded");
+//    });
+//}
 
 
 

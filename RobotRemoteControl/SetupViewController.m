@@ -25,8 +25,8 @@
     
     self.robotIPTextField.delegate = self;
     self.cameraIPTextField.delegate = self;
-    self.robotIPTextField.text = @"192.168.1.176";
-    self.cameraIPTextField.text = @"admin:admin@192.168.1.175";
+    self.robotIPTextField.text = @"192.168.1.114";
+    self.cameraIPTextField.text = @"admin:admin@192.168.1.109";
     //self.cameraIPTextField.text = @"www.google.com";
 
 

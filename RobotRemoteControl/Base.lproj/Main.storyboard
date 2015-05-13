@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="483"/>
+            <point key="canvasLocation" x="982" y="-1"/>
         </scene>
         <!--Button Control View Controller-->
         <scene sceneID="JZ7-rC-NdZ">
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hr-qe-SzW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1251" y="483"/>
+            <point key="canvasLocation" x="1463" y="-1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aS4-GA-sQs">
@@ -237,7 +237,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3s-g4-oQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="483"/>
+            <point key="canvasLocation" x="573" y="-1"/>
         </scene>
         <!--Accelerometer Control View Controller-->
         <scene sceneID="EVK-E5-WWF">
@@ -248,15 +248,15 @@
                         <viewControllerLayoutGuide type="bottom" id="lrt-gz-ybi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="g2N-nN-eoV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999969" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot" translatesAutoresizingMaskIntoConstraints="NO" id="2zI-Zc-tZB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="wJ9-E2-aUH">
-                                <rect key="frame" x="77" y="72" width="229" height="31"/>
+                                <rect key="frame" x="77" y="72" width="477" height="31"/>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxn-Pm-6cL">
                                 <rect key="frame" x="16" y="76" width="55" height="21"/>
@@ -265,7 +265,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdv-Gp-Rbn">
-                                <rect key="frame" x="254" y="498" width="50" height="50"/>
+                                <rect key="frame" x="502" y="250" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Z6f-Wp-ges"/>
                                     <constraint firstAttribute="width" constant="50" id="ndl-r5-5K0"/>
@@ -280,7 +280,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yi-rm-XTM">
-                                <rect key="frame" x="16" y="488" width="60" height="60"/>
+                                <rect key="frame" x="16" y="240" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7Qx-EM-aXn"/>
                                     <constraint firstAttribute="width" constant="60" id="CWm-Ad-bpU"/>
@@ -288,6 +288,11 @@
                                 <state key="normal" backgroundImage="blueBtn">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backButtonDown:" destination="zX4-o2-upg" eventType="touchDown" id="5fk-qs-zC7"/>
+                                    <action selector="backButtonUp:" destination="zX4-o2-upg" eventType="touchUpInside" id="79g-th-x3F"/>
+                                    <action selector="backButtonUp:" destination="zX4-o2-upg" eventType="touchUpOutside" id="VBG-CU-ywz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -309,16 +314,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kxd-3Z-TdX"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="backButton" destination="9Yi-rm-XTM" id="DB0-2o-PaN"/>
+                        <outlet property="forwardButton" destination="Kdv-Gp-Rbn" id="5Th-QM-OR5"/>
                         <outlet property="imageView" destination="2zI-Zc-tZB" id="bt9-wr-yrc"/>
-                        <outlet property="motionButton" destination="Kdv-Gp-Rbn" id="JXp-Dt-FQq"/>
                         <outlet property="velocityLabel" destination="rxn-Pm-6cL" id="tEk-WO-r0r"/>
                         <outlet property="velocitySlider" destination="wJ9-E2-aUH" id="Y4f-Of-O1e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zc-UI-epQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="483"/>
+            <point key="canvasLocation" x="1463" y="593"/>
         </scene>
     </scenes>
     <resources>

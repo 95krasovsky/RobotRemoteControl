@@ -16,7 +16,8 @@
 @interface AccelerometerControlViewController ()
 
 @property (strong, nonatomic) CMMotionManager *motionManager;
-@property (weak, nonatomic) IBOutlet UIButton *motionButton;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -74,7 +75,15 @@
     [RobotControlState setLinearVelocity:0];
 }
 
+- (IBAction)backButtonUp:(UIButton *)sender {
+    [RobotControlState setLinearVelocity:0];
 
+}
+
+- (IBAction)backButtonDown:(UIButton *)sender {
+    [RobotControlState setLinearVelocity:-self.velocitySlider.value];
+
+}
 
 
 @end
