@@ -19,26 +19,16 @@
 @property (strong, nonatomic) NSDate *currentImageDate ;
 @end
 
-
 @implementation ControlViewController
-
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
-   // UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://hdwallpaperd.com/wp-content/uploads/Hd-Widescreen-Wallpapers-For-Desktop1.jpg"]]] ;
-    //NSLog(@"hop");
 }
 
 -(void)setRobotInfo:(RobotInfo *)robotInfo{
     self.title  = [NSString stringWithFormat:@"%@: %@", robotInfo.robotName, robotInfo.robotIP];
     _robotInfo = robotInfo;
-    if ([ConnectionManager isWiFiConnected]){
-        
-    }else{
-        
-    }
 }
 
 - (void)tap:(UITapGestureRecognizer *)sender {
@@ -63,18 +53,16 @@
     }
 }
 
-
-
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [RobotControlState setDefaultState];
     [self startTimer];
     [self startImageTimer];
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     [self resetTimer];
-    
 }
 
 -(void)startImageTimer{
@@ -95,9 +83,7 @@
             NSLog(@"image downloaded");
         });
     });
-    
 }
-
 
 -(void)startTimer{
     self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,
@@ -116,15 +102,5 @@
 -(void)resetTimer{
     dispatch_source_cancel(self.timer);
 }
-
-//-(void)updateImage{
-//    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://admin:admin@192.168.1.175/jpg/image.jpg"]]] ;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.imageView.image = image;
-//        NSLog(@"image downloaded");
-//    });
-//}
-
-
 
 @end

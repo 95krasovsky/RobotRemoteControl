@@ -20,14 +20,9 @@
 +(void)sendUDPPacketToRobot:(RobotInfo *)robotInfo{
     GCDAsyncUdpSocket *socket = [[GCDAsyncUdpSocket alloc] init];
     char *buffer = [RobotCommandGenerator generateCommand];
-//    printf("com: ");
-//    for (int i = 0; i<51; i++){
-//        printf("%i ", *(buffer+i));
-//    }
     
     NSData *data = [NSData dataWithBytes:buffer length:51];    
     [socket sendData:data toHost:robotInfo.robotIP port:robotInfo.port withTimeout:-1 tag:0];
-    //NSLog(@"Localhost: %@", socket.localHost);
 
     [socket closeAfterSending];
 }

@@ -14,7 +14,6 @@ static int linearVelocity = 0;
 static int rotationVelocity = 0;
 
 
-
 +(void)setLinearVelocity:(int)velocity{
     linearVelocity = velocity;
 }
@@ -31,14 +30,9 @@ static int rotationVelocity = 0;
     return rotationVelocity;
 }
 
-
-
 +(void)setDefaultState{
     linearVelocity = 0;
     rotationVelocity = 0;
 }
-
-
-
 
 @end

@@ -20,17 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+   
     self.robotIPTextField.delegate = self;
     self.cameraIPTextField.delegate = self;
     self.robotIPTextField.text = @"192.168.1.114";
     self.cameraIPTextField.text = @"admin:admin@192.168.1.109";
-    //self.cameraIPTextField.text = @"www.google.com";
-
-
-    // Do any additional setup after loading the view, typically from a nib.
+ 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,16 +33,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
 #pragma mark - UITextFieldDelegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return  YES;
 }
-
 
 #pragma mark - Navigation
 
@@ -64,7 +55,5 @@
         }
     }
 }
-
-
 
 @end
